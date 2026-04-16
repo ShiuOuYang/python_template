@@ -8,7 +8,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from app.api.v1.routes import analysis, board, probe_result, test_run
+from app.api.v1.routes import analysis, board, excel, probe_result, test_run
 from app.core.config import settings
 from app.core.database import init_db
 from app.schemas.base import ApiResponse
@@ -50,6 +50,7 @@ app.include_router(board.router, prefix="/api/v1")
 app.include_router(test_run.router, prefix="/api/v1")
 app.include_router(probe_result.router, prefix="/api/v1")
 app.include_router(analysis.router, prefix="/api/v1")
+app.include_router(excel.router, prefix="/api/v1")
 
 
 # ---------- 全局例外處理 ----------
